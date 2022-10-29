@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}세탁 타임라인{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+
+<div class="booked " style="height:30px; text-align:center;">
+    <div id="booked" class="bg-purple-200	"></div>
+</div>
+<div class="frame-outer">
+    <div class="frame-inner shadow-xl">
+        <div class="room325">
+            <div class="label325 bg-purple-700 text-gray-100 mb-2">
+                325호
+            </div>
+            <div class="scroll">
+                <div class="calendar">
+                    <div class="cards" style="height:40px;border-bottom: 1px solid blueviolet;">
+                        <img src="/static/datetime.png" style="height:35px" class="center">
+                    </div>
+                    {% for i in range(12, 48) %}
+                    <div class="cards small">
+                        {{((i)/2)|int}}:{{(i%2)*3}}0
+                    </div>
+                    {% endfor %}
+                </div>
+                {% for item in current_time %}
+                <div class="calendar">
+                    {% set i = loop.index %}
+                    <div class="cards day" style="border-bottom: 1px solid blueviolet;">{{item[0]}}<br>{{item[1]}}</div>
+                    {% for j in range(48*(i-1)+12,48*i) %}
+                    <div class="cards small show"
+                        style="background-color:#{{data[j]['hash']}}; color:#{{data[j]['fontcolor']}};"
+                        onClick="book({{ data[j]['cards_num']}},'{{ data[j]['id'] }}')">
+                        {% if data[j]['id'] == 'none' %}
+                        {% else %}
+                        {% if data[j-1]['id'] == data[j]['id'] %}
+                        {% else %}
+                        {{data[j]['id']}}, {{data[j]['room']}}호
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="frame-inner">
+        <div class="blank"> </div>
+    </div>
+    <div class="frame-inner shadow-xl">
+        <div class="room326">
+            <div class="label326 bg-purple-700 text-gray-100 mb-2 rounded-t-">
+                326호
+            </div>
+            <div class="scroll">
+                <div class="calendar">
+                    <div class="cards  border-solid " style="height:40px;border-bottom: 1px solid blueviolet;">
+                        <img src="/static/datetime.png" style="width:35px" class="center">
+                    </div>
+                    {% for i in range(12, 48) %}
+                    <div class="cards small">
+                        {{((i)/2)|int}}:{{(i%2)*3}}0
+                    </div>
+                    {% endfor %}
+                </div>
+                {% for item in current_time %}
+                <div class="calendar">
+                    <!-- 5+ 로 건너뜀 -->
+                    {% set i = 5+loop.index %}
+                    <div class="cards day border-solid" style="border-bottom: 1px solid blueviolet;">
+                        {{item[0]}}<br>{{item[1]}}
+                    </div>
+                    {% for j in range(48*(i-1)+12,48*i) %}
+                    <div class="cards small show"
+                        style="background-color:#{{data[j]['hash']}}; color:#{{data[j]['fontcolor']}};"
+                        onClick="book({{ data[j]['cards_num']}},'{{ data[j]['id'] }}')">
+                        {% if data[j]['id'] == 'none' %}
+                        {% else %}
+                        {% if data[j-1]['id'] == data[j]['id'] %}
+                        {% else %}
+                        {{data[j]['id']}}, {{data[j]['room']}}호
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

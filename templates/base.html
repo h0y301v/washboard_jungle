@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>{% block title %}{% endblock %} - WASHBOARD</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <!-- JS -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+
+    <script src="/static/function.js"></script>
+    <script type="text/javascript">
+
+        function logout() {
+            $.removeCookie('mytoken', null, { path: '/' });
+            window.location.href = '/';
+        }
+
+    </script>
+    {% block html_head %}{% endblock %}
+</head>
+
+<body>
+    <div id="content">
+        <div>
+            <div>
+                <div style="margin-left:auto;"> <img style="float:left;" src="/static/그림1.svg" class="w-8">
+                    <div style="text-align:left; vertical-align: baseline;"
+                        class="tracking-tighter	font-semibold text-4xl text-violet-800">
+                        WASHBOARD <div type="submit"
+                            class="float-right tracking-tighter	font-sans w-100 flex justify-center bg-purple-700 antialiased text-lg hover:bg-purple-500 text-gray-100 rounded-md font-normal pb-1 cursor-pointer transition ease-in-out duration-500"
+                            onclick="logout()">
+                            logout
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    {% block content %}{% endblock %}
+
+
+    </div>
+
+</body>

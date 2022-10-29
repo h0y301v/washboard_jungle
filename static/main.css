@@ -1,0 +1,202 @@
+div.day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+div.frame-inner {
+    flex-grow: 1;
+}
+
+
+div.cards {
+    text-align: center;
+    width: 100%;
+    border-inline-width: 1px;
+}
+
+div.scroll {
+    overflow: auto;
+    height: 400px;
+
+}
+
+div.room325 {
+    text-align: center;
+}
+
+div.label325 {
+    height: 35px;
+    line-height: 35px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: x-large;
+}
+
+div.room326 {
+    text-align: center;
+}
+
+div.label326 {
+    height: 35px;
+    line-height: 35px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: x-large;
+}
+
+
+div.small {
+    height: 35px;
+    line-height: 35px;
+    font-weight: 400;
+    font-size: medium;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+div.calendar {
+    height: 50px;
+    text-align: center;
+    float: left;
+    width: 20%;
+}
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+
+}
+
+@media (min-width:951px) {
+
+    div.frame-outer {
+        display: grid;
+        grid-template-columns: 15fr 1fr 15fr;
+        text-align: center;
+    }
+}
+
+/* media rule 적용 */
+@media (max-width: 950px) {
+    div.booked {
+        font-size: large
+    }
+
+
+    div.small {
+        height: 35px;
+        line-height: 35px;
+        font-weight: 400;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    div.frame-outer {
+        grid-template-rows: 15fr 1fr 15fr;
+    }
+}
+
+
+@media (min-width: 420px) and (max-width: 520px) {
+
+    div.frame-outer {
+        grid-template-rows: 15fr 1fr 15fr;
+    }
+
+    div.booked {
+        font-size: medium
+    }
+
+    div.day {
+        font-size: medium;
+    }
+
+    div.small {
+        height: 35px;
+        line-height: 35px;
+        font-weight: 400;
+        font-size: small;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    div.frame {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+
+
+@media (min-width: 300px) and (max-width: 420px) {
+    div.booked {
+        font-size: medium
+    }
+
+    div.day {
+        font-size: small;
+    }
+
+    div.small {
+        height: 35px;
+        line-height: 35px;
+        font-weight: 400;
+        font-size: smaller;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    div.frame {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.show {
+        font-size: x-small
+    }
+
+}
+
+@media (min-width: 200px) and (max-width: 300px) {
+    div.booked {
+        font-size: small
+    }
+
+    div.small {
+        height: 35px;
+        line-height: 35px;
+        font-weight: 400;
+        font-size: smaller;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    div.day {
+        font-size: smaller;
+    }
+
+    div.show {
+        font-size: 4px;
+    }
+
+
+}
+
+@media (max-height: 700px) {
+    div.scroll {
+        overflow: auto;
+        height: 300px;
+
+    }
+
+}
